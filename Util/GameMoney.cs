@@ -7,9 +7,11 @@ namespace GameControl.Util
     {
         public static void CustomMoney(string input)
         {
-            double doubleVal = 0;
-            doubleVal = double.Parse(input);
-            if(doubleVal < 1000001 || doubleVal > -1000001)
+            double doubleVal = double.Parse(input);
+            double maxVal = 1000001.0;
+            double minVal = -1000001.0;
+
+            if(doubleVal < maxVal && doubleVal > minVal)
             {
                 Company.Current.AddMoney(doubleVal, BudgetItem.Other, true);
             }
