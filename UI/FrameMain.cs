@@ -1,15 +1,15 @@
 ﻿using System;
 using VoxelTycoon;
-using VoxelTycoon.Game.UI.ModernUI;
 using VoxelTycoon.Modding;
+using VoxelTycoon.Researches;
 using VoxelTycoon.UI;
 using VoxelTycoon.UI.Windows;
 
 namespace GameControl
 {
-    class UIMain : Mod
+    class FrameMain : Mod
     {
-        public UIMain() {}
+        public FrameMain() {}
         public static Frame ShowFrame()
         {
             Dialog val = Dialog.Create();
@@ -21,12 +21,17 @@ namespace GameControl
 
             val.AddButton("Money Tab", ColorHelper.FromHexString("f7cf3c"), (Action)delegate
             {
-                UIMoney.ShowFrame();
+                FrameMoney.ShowFrame();
+            }, false);
+
+            val.AddButton("Unlock All", ColorHelper.FromHexString("94038a"), (Action)delegate
+            {
+                LazyManager<ResearchManager>.Current.CompleteAll();
             }, false);
 
             val.AddButton("Speed Tab", ColorHelper.FromHexString("f58d2c"), (Action)delegate
             {
-                UISpeed.ShowFrame();
+                FrameSpeed.ShowFrame();
             }, false);
 
             val.AddButton("Close", (Action)delegate

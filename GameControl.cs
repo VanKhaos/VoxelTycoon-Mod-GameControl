@@ -12,7 +12,6 @@ namespace GameControl
     // Main Class
     public class GameControl : Mod
     {
-
         private static int speedMultiplier = 1;
         public static int SpeedMultiplier { get => speedMultiplier; set => speedMultiplier = value; }
 
@@ -22,23 +21,10 @@ namespace GameControl
             val.PatchAll();
         }
 
-
         protected override void OnGameStarted()
         {
             SpeedMultiplier = 1;
-            Toolbar.Current.AddButton(FontIcon.FaSolid("\uf11b"), "Game Control", new WindowToolbarAction(() => UIMain.ShowFrame()));
-        }
-
-        protected override void OnUpdate()
-        {
-        }
-
-
-        public static void SetGameSpeed(int gSpeed)
-        {
-            SpeedMultiplier = gSpeed;
-            TimeControls.Current.TogglePause();
-            TimeControls.Current.TogglePause();
+            Toolbar.Current.AddButton(FontIcon.FaSolid("\uf11b"), "Game Control", new WindowToolbarAction(() => FrameMain.ShowFrame()));
         }
 
     }
