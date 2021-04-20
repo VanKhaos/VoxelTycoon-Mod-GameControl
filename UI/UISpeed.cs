@@ -2,17 +2,18 @@
 using VoxelTycoon;
 using VoxelTycoon.Game.UI.ModernUI;
 using VoxelTycoon.Modding;
+using VoxelTycoon.UI;
 using VoxelTycoon.UI.Windows;
 
 namespace GameControl
 {
-    class FrameSpeed : Mod
+    class UISpeed : Mod
     {
-        public FrameSpeed()
+        public static Frame ShowFrame()
         {
             Dialog val = Dialog.Create();
             val.Text = "Game Control | Speed Tab\n\n" +
-                        $"Current Speed Multiplier: {GameControl.SpeedMultiplier}x";
+                      $"Current Speed Multiplier: {GameControl.SpeedMultiplier}x";
 
             val.AddButton("1X", (Action)delegate
             {
@@ -35,9 +36,10 @@ namespace GameControl
             }, true);
 
             val.AddButton("Close", (Action)delegate
-            {}, true);
+            { }, true);
 
             val.Show();
+            return (Frame)(object)val;
         }
 
 

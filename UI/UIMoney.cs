@@ -1,37 +1,43 @@
-﻿using System;
+﻿using HarmonyLib;
+using System;
+using UnityEngine;
 using VoxelTycoon;
+using VoxelTycoon.Game.UI.ModernUI;
 using VoxelTycoon.Modding;
+using VoxelTycoon.UI;
 using VoxelTycoon.UI.Windows;
 
 namespace GameControl
 {
-    class FrameMoney : Mod
+    class UIMoney : Mod
     {
-        public FrameMoney()
+        public static Frame ShowFrame()
         {
             Dialog val = Dialog.Create();
-            Company current = Company.Current;
-            
-            
+
+            double moneyX = 500000.00;
+
+
             val.Text = "Game Control | Money Tab\n\n" +
-                       $"Current Money: ";
+                       $"Company Money: {Company.Current.Money}";
 
             val.AddPositiveButton("+ 500.000", (Action)delegate
             {
-                current.AddMoney(500000.0, (BudgetItem)0, true);
+                Company.Current.AddMoney(moneyX, (BudgetItem)0, true);
             }, false);
 
             val.AddNegativeButton("- 500.000", (Action)delegate
             {
-                current.AddMoney(-500000.0, (BudgetItem)0, true);
+                Company.Current.AddMoney(-moneyX, (BudgetItem)0, true);
             }, false);
 
             val.AddButton("Close", (Action)delegate
             {
-                
+
             }, true);
 
             val.Show();
+            return (Frame)(object)val;
         }
     }
 }
