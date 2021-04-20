@@ -16,8 +16,7 @@ namespace GameControl
             string companyName = Company.Current.Name;
             double companyMoney = Company.Current.Money;
             val.Text = "Game Control\n\n" +
-                      $"Company Name: {companyName}\n" +
-                      $"Company Money: {companyMoney}";
+                      $"Company Name: {companyName}\n";
 
             val.AddButton("Money Tab", ColorHelper.FromHexString("f7cf3c"), (Action)delegate
             {

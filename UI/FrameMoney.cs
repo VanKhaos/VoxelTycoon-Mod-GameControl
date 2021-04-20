@@ -17,7 +17,7 @@ namespace GameControl
             double money = 500000.00;
 
             val.Text = "Game Control | Money Tab\n\n" +
-                      $"Company Money: {Company.Current.Value}";
+                       "";
 
             val.AddPositiveButton("+ 500.000", (Action)delegate
             {
@@ -31,7 +31,7 @@ namespace GameControl
 
             val.AddButton("Custom", ColorHelper.FromHexString("041887"), (Action)delegate
             {
-                InputDialog input = InputDialog.ShowFor("How much do you want ?\n^\n" +
+                InputDialog input = InputDialog.ShowFor("How much do you want ?\n\n" +
                                                         "Max: 1.000.000\n" +
                                                         "Min: -1.000.000\n" +
                                                         "Enter without dot (.)", "50000", new Action<String>(a => {
