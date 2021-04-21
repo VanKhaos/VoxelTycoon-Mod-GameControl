@@ -8,8 +8,8 @@ namespace GameControl.Util
         public static void CustomMoney(string input)
         {
             double doubleVal = double.Parse(input);
-            double maxVal = 1000001.0;
-            double minVal = -1000001.0;
+            double maxVal = 5000001.0;
+            double minVal = -5000001.0;
 
             if(doubleVal < maxVal && doubleVal > minVal)
             {

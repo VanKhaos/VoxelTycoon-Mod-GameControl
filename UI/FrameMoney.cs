@@ -32,8 +32,8 @@ namespace GameControl
             val.AddButton("Custom", ColorHelper.FromHexString("041887"), (Action)delegate
             {
                 InputDialog input = InputDialog.ShowFor("How much do you want ?\n\n" +
-                                                        "Max: 1.000.000\n" +
-                                                        "Min: -1.000.000\n" +
+                                                        "Max: 5.000.000\n" +
+                                                        "Min: -5.000.000\n" +
                                                         "Enter without dot (.)", "50000", new Action<String>(a => {
                                                             GameMoney.CustomMoney(a.ToString()); 
                                                         }));                 
