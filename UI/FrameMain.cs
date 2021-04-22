@@ -41,15 +41,6 @@ namespace GameControl
                 LazyManager<ResearchManager>.Current.CompleteAll();
             }, false);
 
-
-            val.AddButton("DEV BUTTON", (Action)delegate
-            {
-                Headquarters hq = Company.Current.Headquarters;
-                hq.SetLevel(Company.Current.Headquarters.Level + 2);
-
-            }, true);
-
-
             val.AddButton("Close", (Action)delegate
             {
 
